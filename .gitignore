@@ -1,0 +1,8 @@
+# ignore ALL files in en directory 
+env/
+
+# ignore tinytuya wizard generted files
+devices.json
+snapshot.json
+tinytuya.json
+tuya-raw.json
