@@ -6,3 +6,6 @@ devices.json
 snapshot.json
 tinytuya.json
 tuya-raw.json
+
+# Temporary for development
+temp.py

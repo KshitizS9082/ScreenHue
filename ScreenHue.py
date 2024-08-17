@@ -4,7 +4,21 @@ RGB Bulb Device
 import time
 import tinytuya
 
-d = tinytuya.BulbDevice('d7f6cd1f04084457abbp5g', '192.168.1.2', "<~_YZ'Dfdk=cOh>e", version=3.4)
+import json
+lampDetails=None
+with open('devices.json', "r") as f:
+    devices = json.load(f)
+    for device in devices:
+        if(device["name"]=="Lamp"):
+            lampDetails=device
+assert lampDetails!=None
+DEVICE_ID=lampDetails["id"]
+LOCAL_KEY=lampDetails["key"]
+IP_ADDRESS=lampDetails["ip"]
+VERSION=lampDetails["version"]
+VERSION=float(VERSION)
+
+d = tinytuya.BulbDevice(DEVICE_ID, IP_ADDRESS, LOCAL_KEY, version=VERSION)
 d.set_version(3.4)  # IMPORTANT to set this regardless of version
 d.set_socketPersistent(True)  # Optional: Keep socket open for multiple commands
 data = d.status()
