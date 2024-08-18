@@ -75,10 +75,8 @@ while True:
         continue
         # pass
     else:
-        # print("Changed colour to " + str(dominant_color))
         r, g, b = dominant_color
         d.set_colour(r,g,b)  
-        print("set to rgb")
         # brigtness = sqrt((r*r+b*b+g*g)/3)*100/255
         # d.set_brightness_percentage(brigtness)
         print(f"New Color: {dominant_color}")

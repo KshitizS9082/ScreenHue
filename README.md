@@ -1,6 +1,31 @@
 # ScreenHue
 Dynamic Screen Content Based Ambient Lighting for Smart Bulbs Using TinyTuya and Python
 
+## Background
+Ambilight is a feature built into Philips TVs that has enabled the company to build a strong fan base thanks to this technology. TVs with this feature integrate LED lights around the edges to project backlight into the room. These LED lights are synchronised with the content on the screen to enhance visual immersion and comfort.
+
+Ambilight enhances visual immersion, reduces fatigue and personalises lighting for an exceptional entertainment experience.
+
+These lights project colours and hues that match the image on the screen, creating ambient lighting that extends beyond the edges of the TV.
+
+While buying a TV for this is an option, it might be a little heavy on some pockets. 
+
+Smart bulbs have all the lights, they can be changed remotely using apps. Apps must be using some API internally. We might be able to ping those APIs.
+
+Simple python script can capture our monitors screens, that's not an issue. We can process the image and get the appropriate color, that's not an issue. 
+
+![If they can do it, so CAN we](https://i.pinimg.com/564x/4f/f0/92/4ff0922666a17a117220733bbbf0fba1.jpg)
+
+A little googling, and I came across the word [Bias Lighting](https://en.wikipedia.org/wiki/Bias_lighting). In home cinema and video editing technology, bias lighting is a weak light source on the backside of a screen or monitor that illuminates the wall or surface behind and just around the display.
+
+Usually smart apps use cloud based API to ping IOT devices. Issue with that is that introduces too much latency and especially in our usecase of regular pings, probablity of throttling the calls. Luckily there's a python package [TinyTuya](https://github.com/jasonacox/tinytuya)(Shoutout to [jasonacox](https://github.com/jasonacox)) that leverages the access to local area network tuya API. This solved our latency issue. This solves our latency and API call limits issues. 
+
+For getting the ideal colour we use colorthief on the screen's image. 
+
+While this works nice, there's scope of improvement.
+1. [Hyperion](https://github.com/hyperion-project/hyperion.ng) is an opensource [Bias or Ambient Lighting](https://en.wikipedia.org/wiki/Bias_lighting).
+
+
 ## Installation
 ```bash
 # Clone the repo
